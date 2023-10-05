@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 def do_pack():
+    """ function """
     run('mkdir -p versions')
     y = datetime.now().year
     m = datetime.now().month
