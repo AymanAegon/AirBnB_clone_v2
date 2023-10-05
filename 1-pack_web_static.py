@@ -17,7 +17,7 @@ def do_pack():
         n = datetime.now().minute
         s = datetime.now().second
         filename = 'web_static_{}{}{}{}{}{}.tgz'.format(y, m, d, h, n, s)
-        local('tar -czvf versions/{}'.format(filename))
+        local('tar -czvf versions/{} web_static/'.format(filename))
         return 'versions/{}'.format(filename)
     except:
         return None
