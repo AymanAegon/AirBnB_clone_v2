@@ -2,11 +2,24 @@
 """ distributes an archive to your web servers,
 using the function do_deploy """
 
-from fabric.api import env, put, run
+from fabric.api import env, put, run, local, task
 from os import path
+from datetime import datetime
 
 env.hosts = ['34.204.101.175', '35.153.192.118']
 env.user = "ubuntu"
+
+@task
+def do_pack():
+    """ function """
+    try:
+        local('mkdir -p versions')
+        dt = datetime.now().strftime('%Y%m%d%H%M%S')
+        filename = 'web_static_{}.tgz'.format(dt)
+        local('tar -czvf versions/{} web_static/'.format(filename))
+        return 'versions/{}'.format(filename)
+    except:
+        return None
 
 
 def do_deploy(archive_path):
