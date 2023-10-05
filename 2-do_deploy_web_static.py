@@ -2,8 +2,11 @@
 """ distributes an archive to your web servers,
 using the function do_deploy """
 
-from fabric.api import *
+from fabric.api import env, put, run
 from os import path
+
+env.hosts = ['34.204.101.175', '35.153.192.118']
+env.user = "ubuntu"
 
 
 def do_deploy(archive_path):
@@ -11,8 +14,6 @@ def do_deploy(archive_path):
     if not path.isfile(archive_path):
         return False
     try:
-        env.hosts = ['52.55.249.213', '54.157.32.137']
-        env.user = "ubuntu"
         put(archive_path, "/tmp")
         name = archive_path.split('/')[-1].split('.')[0]
         folder = "/data/web_static/releases/{}".format(name)
