@@ -25,10 +25,10 @@ def do_pack():
 @task
 def do_deploy(archive_path):
     """ function """
-    if not path.isfile(archive_path):
+    if path.isfile(archive_path) is False:
         return False
     try:
-        put(archive_path, "/tmp")
+        put(archive_path, "/tmp/")
         name = archive_path.split('/')[-1].split('.')[0]
         folder = "/data/web_static/releases/{}".format(name)
         run("mkdir -p {}".format(folder))
