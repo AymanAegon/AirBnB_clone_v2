@@ -2,10 +2,11 @@
 """ generates a .tgz archive from the contents of the web_static folder of
 your AirBnB Clone repo, using the function do_pack """
 
-from fabric.api import local
+from fabric.api import local, task
 from datetime import datetime
 
 
+@task
 def do_pack():
     """ function """
     try:
