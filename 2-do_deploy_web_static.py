@@ -22,6 +22,7 @@ def do_pack():
         return None
 
 
+@task
 def do_deploy(archive_path):
     """ function """
     if not path.isfile(archive_path):
