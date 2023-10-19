@@ -78,3 +78,12 @@ class DBStorage:
     def save(self):
         """saves the changes"""
         self.__session.commit()
+
+    def close(self):
+        """close method"""
+        Base.metadata.create_all(self.__engine)
+        Session = scoped_session(
+            sessionmaker(bind=self.__engine, expire_on_commit=False)
+        )
+        self.__session = Session()
+        self.__session.remove()
