@@ -37,7 +37,6 @@ class DBStorage:
         if hb_env == "test":
             Base.metadata.drop_all(self.__engine)
 
-
     def all(self, cls=None):
         """
         query on the current database session
