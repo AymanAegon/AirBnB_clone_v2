@@ -23,14 +23,14 @@ def hbnb():
 @app.route("/c/<text>")
 def ctext(text):
     """ function """
-    return "C {}".format(text)
+    return "C {}".format(text.replace('_', ' '))
 
 
 @app.route("/python/")
 @app.route("/python/<text>")
 def pytext(text="is cool"):
     """ function """
-    return "Python {}".format(text)
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
