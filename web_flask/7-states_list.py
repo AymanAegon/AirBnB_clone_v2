@@ -58,6 +58,7 @@ def number_odd_or_even(n):
 def states_list():
     """ def doc """
     states = [s for s in storage.all(State).values()]
+    print(states)
     return render_template('7-states_list.html', states=states)
 
 
