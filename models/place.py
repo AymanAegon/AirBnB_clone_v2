@@ -8,7 +8,7 @@ from os import getenv
 storage_type = getenv("HBNB_TYPE_STORAGE")
 
 
-class Place(BaseModel):
+class Place(BaseModel, Base):
     """ A place to stay """
     city_id = ""
     user_id = ""
