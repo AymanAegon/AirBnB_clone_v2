@@ -16,8 +16,8 @@ from models.amenity import Amenity
 
 class DBStorage:
     """ DBStorage class"""
-    __engine__ = None
-    __session__ = None
+    __engine = None
+    __session = None
 
     def __init__(self):
         """
